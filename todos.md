@@ -1,5 +1,11 @@
 # Development log
 
+## Roadblocks
+- [ ] Base CLI
+- [ ] Launch loop
+- [ ] Debugging and dummy data
+- [ ] Final testing
+
 ## CLI
 ### Commands
 - [ ] new

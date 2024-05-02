@@ -35,16 +35,14 @@ def mark_done(habit_id: int):
 
 
 @typer_app.command(help="See habits list")
-def habits(periodicity: str = "d", start_date: str = None, end_date: str = None):
+def habits(periodicity: str = None):
     """
     List all habits
     :param periodicity:
-    :param start_date:
-    :param end_date:
     :return:
     """
-    typer.echo(f"Showing all {periodicity} habits between {start_date} and {end_date}")
-    pass
+    app = App(console=console, debug=False)
+    app.list_habits(periodicity)
 
 
 @typer_app.command(help="Show app-wide analytics")

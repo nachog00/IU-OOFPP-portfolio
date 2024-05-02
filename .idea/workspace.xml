@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e425551-3f80-4f4d-8d12-4a32ec418b4a" name="Changes" comment="mark-done command working">
-      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/todos.md" afterDir="false" />
+    <list default="true" id="0e425551-3f80-4f4d-8d12-4a32ec418b4a" name="Changes" comment="added markdown todos">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Habit.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Habit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +105,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1714617322134</updated>
-      <workItem from="1714617336831" duration="17095000" />
+      <workItem from="1714617336831" duration="18782000" />
     </task>
     <task id="LOCAL-00001" summary="Already defined all cli commands (empty logic)&#10;Typer is running fine.">
       <option name="closed" value="true" />
@@ -153,7 +155,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714683917371</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added markdown todos">
+      <option name="closed" value="true" />
+      <created>1714684659417</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1714684659417</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,7 +187,8 @@
     <MESSAGE value="." />
     <MESSAGE value="add habit command working fine" />
     <MESSAGE value="mark-done command working" />
-    <option name="LAST_COMMIT_MESSAGE" value="mark-done command working" />
+    <MESSAGE value="added markdown todos" />
+    <option name="LAST_COMMIT_MESSAGE" value="added markdown todos" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

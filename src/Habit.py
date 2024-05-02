@@ -34,3 +34,7 @@ class Habit:
         self.description = description
         self.periodicity_id = periodicity_id
         self.start_date = datetime.date.fromisoformat(start_date) if type(start_date) is str else start_date
+
+    @property
+    def periodicity(self):
+        return PERIODICITIES[self.periodicity_id]
