@@ -2,6 +2,7 @@ from datetime import datetime
 import rich
 
 from src.Habit import Habit
+from src.Record import Record
 from src.db import Db
 
 
@@ -28,7 +29,7 @@ class App:
         self.console.print("💾", f"[bold magenta]Stored habit: {title}[/bold magenta]")
 
     def mark_done(self, habit_id: int):
-        ...
+        self.db.insert_record(Record(record_id=None, habit_id=habit_id, date=self.current_date.isoformat()))
 
     def get_habits(self, periodicity: str = "d", start_date: str = None, end_date: str = None):
         ...

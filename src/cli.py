@@ -24,15 +24,14 @@ def new(title: str, description: str, periodicity: str = None, start_date: str =
 
 
 @typer_app.command(help="Mark habit as done")
-def mark_done(habit_id: int, current_date: str):
+def mark_done(habit_id: int):
     """
     Mark habit as done
     :param habit_id:
-    :param current_date:
     :return:
     """
-    typer.echo(f"Completed habit {habit_id}")
-    pass
+    app = App(console=console, debug=False)
+    app.mark_done(habit_id)
 
 
 @typer_app.command(help="See habits list")
