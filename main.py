@@ -1,4 +1,4 @@
-from src.cli import app
+from src.cli import typer_app
 
 if __name__ == '__main__':
-    app()
+    typer_app()
