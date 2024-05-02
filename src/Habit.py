@@ -23,23 +23,14 @@ PERIODICITIES = {
 class Habit:
     def __init__(
             self,
-            id: int,
+            id: int | None,
             title: str,
             description: str,
-            start_date: str,
             periodicity_id: str,
+            start_date: str | datetime.date
     ):
         self.id = id
         self.title = title
         self.description = description
         self.periodicity_id = periodicity_id
-        self.start_date = self.string_to_date(start_date)
-
-    @staticmethod
-    def string_to_date(date_string: str) -> datetime.date:
-        """
-        Parses a date string
-        :param date_string:
-        :return:
-        """
-        return datetime.datetime.strptime(date_string, "").date()
+        self.start_date = datetime.date.fromisoformat(start_date) if type(start_date) is str else start_date

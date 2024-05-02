@@ -1,12 +1,16 @@
 import datetime
 
+import rich
 import typer
 
-app = typer.Typer()
+from src.app import App
+
+typer_app = typer.Typer()
+console = rich.console.Console()
 
 
-@app.command(help="Add a new habit")
-def new(title: str, description: str, start_date: str, periodicity: str):
+@typer_app.command(help="Add a new habit")
+def new(title: str, description: str, periodicity: str = None, start_date: str = None):
     """
     Add a new habit
     :param title:
@@ -15,11 +19,11 @@ def new(title: str, description: str, start_date: str, periodicity: str):
     :param periodicity:
     :return:
     """
-    typer.echo("New habit")
-    pass
+    app = App(console=console, debug=False)
+    app.add_habit(title=title, description=description, start_date=start_date, periodicity=periodicity)
 
 
-@app.command(help="Mark habit as done")
+@typer_app.command(help="Mark habit as done")
 def mark_done(habit_id: int, current_date: str):
     """
     Mark habit as done
@@ -31,8 +35,8 @@ def mark_done(habit_id: int, current_date: str):
     pass
 
 
-@app.command(help="See habits list")
-def habits(periodicity: str, start_date: str, end_date: str):
+@typer_app.command(help="See habits list")
+def habits(periodicity: str = "d", start_date: str = None, end_date: str = None):
     """
     List all habits
     :param periodicity:
@@ -44,7 +48,7 @@ def habits(periodicity: str, start_date: str, end_date: str):
     pass
 
 
-@app.command(help="Show app-wide analytics")
+@typer_app.command(help="Show app-wide analytics")
 def analytics():
     """
     Shows app-wide analytics
@@ -54,7 +58,7 @@ def analytics():
     pass
 
 
-@app.command(help="Launch interactive loop")
+@typer_app.command(help="Launch interactive loop")
 def launch(debug: bool = False, current_date: str = None):
     typer.echo("Launching")
     pass

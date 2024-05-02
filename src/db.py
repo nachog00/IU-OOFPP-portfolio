@@ -4,7 +4,7 @@ from src.Record import Record
 
 
 class Db:
-    def __init__(self, db_file="data/default.data", debug: bool = False):
+    def __init__(self, db_file="data/default.db", debug: bool = False):
         self.conn = sqlite3.connect(db_file)
         self.cursor = self.conn.cursor()
         self.create_tables()
@@ -50,7 +50,7 @@ class Db:
             INSERT INTO habits (title, description, periodicity_id, start_date)
             VALUES (?, ?, ?, ?)
             """,
-            (habit.title, habit.description, habit.periodicity_id, habit.start_date),
+            (habit.title, habit.description, habit.periodicity_id, habit.start_date.isoformat()),
         )
         self.conn.commit()
 
