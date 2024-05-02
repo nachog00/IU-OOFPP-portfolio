@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e425551-3f80-4f4d-8d12-4a32ec418b4a" name="Changes" comment=".">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Habit.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Habit.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/db.py" afterDir="false" />
+    <list default="true" id="0e425551-3f80-4f4d-8d12-4a32ec418b4a" name="Changes" comment="mark-done command working">
+      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todos.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +103,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1714617322134</updated>
-      <workItem from="1714617336831" duration="15032000" />
+      <workItem from="1714617336831" duration="17095000" />
     </task>
     <task id="LOCAL-00001" summary="Already defined all cli commands (empty logic)&#10;Typer is running fine.">
       <option name="closed" value="true" />
@@ -141,7 +137,23 @@
       <option name="project" value="LOCAL" />
       <updated>1714677188095</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add habit command working fine">
+      <option name="closed" value="true" />
+      <created>1714682756524</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1714682756524</updated>
+    </task>
+    <task id="LOCAL-00006" summary="mark-done command working">
+      <option name="closed" value="true" />
+      <created>1714683917371</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1714683917371</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,7 +175,9 @@
     <MESSAGE value="initialized App, Habit, Db and Record Classes" />
     <MESSAGE value="added .idea to gitignore" />
     <MESSAGE value="." />
-    <option name="LAST_COMMIT_MESSAGE" value="." />
+    <MESSAGE value="add habit command working fine" />
+    <MESSAGE value="mark-done command working" />
+    <option name="LAST_COMMIT_MESSAGE" value="mark-done command working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
