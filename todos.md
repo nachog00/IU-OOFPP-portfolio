@@ -1,8 +1,8 @@
 # Development log
 
 ## Roadblocks
-- [ ] Base CLI
-- [ ] Launch loop
+- [X] Base CLI
+- [X] Launch loop
 - [ ] Debugging and dummy data
 - [ ] Final testing
 
