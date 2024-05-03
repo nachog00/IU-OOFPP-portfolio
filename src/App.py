@@ -5,6 +5,7 @@ from rich.table import Table
 from src.Habit import Habit, PERIODICITIES
 from src.Record import Record
 from src.Db import Db
+from src.analytics import analytics
 
 
 class App:
@@ -25,7 +26,7 @@ class App:
         """
         periodicity = periodicity if periodicity is not None else "d"
         start_date = start_date if start_date is not None else self.current_date.isoformat()
-        habit = Habit(None, title, description, periodicity, start_date)
+        habit = Habit(None, title, description, periodicity, start_date, self.db)
         self.db.insert_habit(habit)
         self.console.print("💾", f"[bold magenta]Stored habit: {title}[/bold magenta]")
 
@@ -75,8 +76,32 @@ class App:
         # print the table
         self.console.print(table)
 
-    def get_analytics(self):
-        ...
+    def analytics(self):
+
+        self.console.print("[bold magenta]Analytics[/bold magenta]")
+        
+        data = analytics(self)
+
+        for key, value in data.items():
+
+            table = Table(title=str(key), show_header=True, header_style="bold blue")
+
+            table.add_column("Periodicity", min_width=10)
+            table.add_column("Value", min_width=10)
+            table.add_column("Habit", min_width=10)
+
+            for p, h in value.items():
+
+                if h == None:
+                    continue
+
+                periodicity = PERIODICITIES[p]["name"] if p != "a" else "All"
+
+                table.add_row( periodicity , str(h["value"]), h["habit"].title)
+
+            self.console.print(table)
+        
+
 
     def launch(self):
         ...

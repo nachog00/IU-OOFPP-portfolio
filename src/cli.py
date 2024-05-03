@@ -51,9 +51,8 @@ def analytics():
     Shows app-wide analytics
     :return: None
     """
-    typer.echo("Analytics")
-    pass
-
+    app = App(console=console, debug=False)
+    app.analytics()
 
 @typer_app.command(help="Launch interactive loop")
 def launch(debug: bool = False, current_date: str = None):

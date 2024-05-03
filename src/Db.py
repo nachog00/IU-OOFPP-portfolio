@@ -4,7 +4,8 @@ from src.Record import Record
 
 
 class Db:
-    def __init__(self, db_file="data/default.db", debug: bool = False):
+    def __init__(self, db_file: str = None, debug: bool = False):
+        db_file = db_file if db_file is not None else "data/default.db"
         self.conn = sqlite3.connect(db_file)
         self.cursor = self.conn.cursor()
         self.create_tables()

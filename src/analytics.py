@@ -3,14 +3,14 @@ from typing import Dict, Any
 
 from rich.pretty import pprint
 
-from src.App import App
+# from src.App import App
 
 from src.Habit import PERIODICITIES, Habit
 
 from rich.console import Console
 
 
-def analytics(app: App):
+def analytics(app):
     """
     this function recopilates key app wide statistics including
         * longest overall streak
@@ -80,9 +80,3 @@ def get_oldest_habit(habits: list[Habit]) -> dict[str, Habit | Any]:
         "habit": result,
         "value": result.start_date
     }
-
-
-if __name__ == "__main__":
-    app = App(Console(), database_file='../data/default.db')
-    result = analytics(app)
-    pprint(result)
