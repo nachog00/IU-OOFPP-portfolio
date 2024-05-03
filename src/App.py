@@ -8,10 +8,10 @@ from src.Db import Db
 
 
 class App:
-    def __init__(self, console: rich.console, debug: bool = False):
+    def __init__(self, console, debug: bool = False, database_file: str = None):
         self.debug = debug
         self.console = console
-        self.db = Db()
+        self.db = Db(db_file=database_file)
         self.current_date = datetime.now().date()
 
     def add_habit(self, title: str, description: str, periodicity: str = None, start_date: str = None):
