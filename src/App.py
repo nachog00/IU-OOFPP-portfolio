@@ -1,4 +1,6 @@
 from datetime import datetime
+
+import pyfiglet
 import rich
 from rich.table import Table
 
@@ -116,6 +118,11 @@ class App:
         Launches an interactive loop
         :return:
         """
+
+        # show a figlet title of the app
+        title = pyfiglet.figlet_format('Habit Tracker', font='roman')
+        self.console.print(f'[blue]{title}[/blue]')
+
         self.should_quit = False
 
         def new_habit_controller():
@@ -135,9 +142,10 @@ class App:
             """
             This route poses the user with a list of habits to mark as done today
             """
+            self.console.print("📅", "[bold magenta]These are the habits you are mising as of today:[/bold magenta]")
             habits = self.get_habits_for_today()
             options = [
-                inquirer.Checkbox("habits", message="Select habits to mark as done", choices=[habit.title for habit in habits])
+                inquirer.Checkbox("habits", message="Select habits to mark as done (spacebar) and press enter", choices=[habit.title for habit in habits])
             ]
             answers = inquirer.prompt(options)
             for habit in habits:
@@ -145,20 +153,21 @@ class App:
                     self.mark_done(habit.id)
             self.list_habits(None)
 
+        # Define the routes for the menu
         routes = {
             "New Habit": new_habit_controller,
+            "See my habits" : lambda: self.list_habits(None),
             "Today": today_controller,
             "Analytics": lambda: self.analytics(),
             "Quit": lambda: setattr(self, "should_quit", True),
             "Go to next day": lambda: ...
         }
 
-
         while not self.should_quit:
             # Create a list of options for the menu
             options = [
                 inquirer.List('route',
-                              message="Menu:",
+                              message="Menu",
                               choices=list(routes.keys()),
                               ),
             ]
@@ -168,3 +177,7 @@ class App:
 
             # Call the controller function for the selected route
             routes[answer['route']]()
+            
+            self.console.print("----------------------------------------------------")
+        
+        self.console.print("[bold blue]Goodbye![/bold blue]")

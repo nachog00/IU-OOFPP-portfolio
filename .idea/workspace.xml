@@ -7,7 +7,6 @@
     <list default="true" id="0e425551-3f80-4f4d-8d12-4a32ec418b4a" name="Changes" comment="analytics module working great.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Habit.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Habit.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +138,7 @@
       <option name="presentableId" value="Default" />
       <updated>1714617322134</updated>
       <workItem from="1714617336831" duration="25343000" />
-      <workItem from="1714749229757" duration="10008000" />
+      <workItem from="1714749229757" duration="11761000" />
     </task>
     <task id="LOCAL-00001" summary="Already defined all cli commands (empty logic)&#10;Typer is running fine.">
       <option name="closed" value="true" />
@@ -270,7 +269,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="analytics module working great." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/IU_Habit_Tracker$scratch_1.coverage" NAME="scratch_1 Coverage Results" MODIFIED="1714759854988" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
+    <SUITE FILE_PATH="coverage/IU_Habit_Tracker$scratch_1.coverage" NAME="scratch_1 Coverage Results" MODIFIED="1714761562359" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
     <SUITE FILE_PATH="coverage/IU_Habit_Tracker$analytics.coverage" NAME="analytics Coverage Results" MODIFIED="1714754787864" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/IU_Habit_Tracker$main.coverage" NAME="main Coverage Results" MODIFIED="1714618796564" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
