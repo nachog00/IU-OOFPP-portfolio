@@ -45,6 +45,35 @@ class Habit:
     def records(self):
         return self.db.get_records_for_habit(self.id)
 
+
+    def is_latest_period_done(self, current_date: datetime.date = None):
+        """
+        Determines if the habit is done on the latest period (or on the period corresponding to the current date)
+        :param current_date:
+        :return:
+        """
+        records = self.records
+        current_date = current_date if current_date is not None else datetime.date.today()
+        # decide the period for the current date, return True if any record already done within that period
+        return self.is_period_done_for_date(current_date)
+
+    def get_period_for_date(self,date: datetime.date):
+        records = self.records
+        [d1,d2] = [ self.start_date , self.start_date + self.periodicity["duration"]]
+        if date < d1:
+            return None
+        while date >= d2:
+            [d1,d2] = [d2,d2 + self.periodicity["duration"]]
+        return [d1,d2]
+
+    def is_period_done(self, period: list[datetime.date]):
+        records = self.records
+        return any([period[0] <= record.date.date() < period[1] for record in records])
+
+    def is_period_done_for_date(self, date: datetime.date):
+        period = self.get_period_for_date(date)
+        return self.is_period_done(period) if period is not None else False
+
     @property
     def summary(self, today: datetime.date = None):
         summary = {

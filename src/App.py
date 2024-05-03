@@ -37,6 +37,15 @@ class App:
     def get_habits(self, periodicity_id: str | None) -> list[Habit]:
         return self.db.get_habits(periodicity_id)
 
+    def get_habits_for_today(self):
+        """
+        get habits but only those for wich as of the current date, its latest period hast been marked done
+        :return:
+        """
+        habits = self.get_habits(None)
+        return [habit for habit in habits if not habit.is_latest_period_done(self.current_date)]
+
+
     def list_habits(self, periodicity: str | None):
         habits = self.get_habits(periodicity)
 
@@ -122,9 +131,23 @@ class App:
             # show the udpated list
             self.list_habits(None)
         
+        def today_controller():
+            """
+            This route poses the user with a list of habits to mark as done today
+            """
+            habits = self.get_habits_for_today()
+            options = [
+                inquirer.Checkbox("habits", message="Select habits to mark as done", choices=[habit.title for habit in habits])
+            ]
+            answers = inquirer.prompt(options)
+            for habit in habits:
+                if habit.title in answers["habits"]:
+                    self.mark_done(habit.id)
+            self.list_habits(None)
+
         routes = {
             "New Habit": new_habit_controller,
-            "Today": lambda: self.list_habits(None),
+            "Today": today_controller,
             "Analytics": lambda: self.analytics(),
             "Quit": lambda: setattr(self, "should_quit", True),
             "Go to next day": lambda: ...
