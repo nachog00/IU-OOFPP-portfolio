@@ -9,6 +9,7 @@ from src.Record import Record
 from src.Db import Db
 from src.analytics import analytics
 import inquirer
+from inquirer.themes import BlueComposure
 
 
 class App:
@@ -46,7 +47,6 @@ class App:
         """
         habits = self.get_habits(None)
         return [habit for habit in habits if not habit.is_latest_period_done(self.current_date)]
-
 
     def list_habits(self, periodicity: str | None):
         habits = self.get_habits(periodicity)
@@ -126,18 +126,27 @@ class App:
         self.should_quit = False
 
         def new_habit_controller():
+
+            def validate_date(_, date: str):
+                try:
+                    datetime.fromisoformat(date)
+                except:
+                    raise inquirer.errors.ValidationError(f"", reason="Invalid date format. Please use YYYY-MM-DD")
+                return True
+
             questions = [
                 inquirer.Text("title", message="Enter habit title"),
                 inquirer.Text("description", message="Enter habit description"),
                 inquirer.List("periodicity", message="Enter periodicity", choices=[*PERIODICITIES.keys()]),
-                inquirer.Text("start_date", message="Enter start date", default=datetime.now().date().isoformat())
+                inquirer.Text("start_date", message="Enter start date", default=self.current_date.isoformat(),
+                              validate=validate_date)
             ]
-            answers = inquirer.prompt(questions)
+            answers = inquirer.prompt(questions, theme=BlueComposure())
             self.add_habit(answers["title"], answers["description"], answers["periodicity"], answers["start_date"])
-            
+
             # show the udpated list
             self.list_habits(None)
-        
+
         def today_controller():
             """
             This route poses the user with a list of habits to mark as done today
@@ -145,7 +154,8 @@ class App:
             self.console.print("📅", "[bold magenta]These are the habits you are mising as of today:[/bold magenta]")
             habits = self.get_habits_for_today()
             options = [
-                inquirer.Checkbox("habits", message="Select habits to mark as done (spacebar) and press enter", choices=[habit.title for habit in habits])
+                inquirer.Checkbox("habits", message="Select habits to mark as done (spacebar) and press enter",
+                                  choices=[habit.title for habit in habits])
             ]
             answers = inquirer.prompt(options)
             for habit in habits:
@@ -156,7 +166,7 @@ class App:
         # Define the routes for the menu
         routes = {
             "New Habit": new_habit_controller,
-            "See my habits" : lambda: self.list_habits(None),
+            "See my habits": lambda: self.list_habits(None),
             "Today": today_controller,
             "Analytics": lambda: self.analytics(),
             "Quit": lambda: setattr(self, "should_quit", True),
@@ -177,7 +187,7 @@ class App:
 
             # Call the controller function for the selected route
             routes[answer['route']]()
-            
+
             self.console.print("----------------------------------------------------")
-        
+
         self.console.print("[bold blue]Goodbye![/bold blue]")
