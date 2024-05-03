@@ -43,7 +43,6 @@ class Habit:
 
     @property
     def records(self):
-        # TODO hacer que esta conexion use la base de datos estipulada igual que App
         return self.db.get_records_for_habit(self.id)
 
     @property

@@ -18,11 +18,11 @@
   - [ ] tested
 - [ ] habits
   - [x] initialized
-  - [ ] working
+  - [X] working
   - [ ] tested
 - [ ] analytics
   - [x] initialized
-  - [ ] working
+  - [X] working
   - [ ] tested
 
 ### Launch loop

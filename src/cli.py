@@ -3,7 +3,7 @@ import datetime
 import rich
 import typer
 
-from src.app import App
+from src.App import App
 
 typer_app = typer.Typer()
 console = rich.console.Console()

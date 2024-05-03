@@ -4,7 +4,7 @@ from rich.table import Table
 
 from src.Habit import Habit, PERIODICITIES
 from src.Record import Record
-from src.db import Db
+from src.Db import Db
 
 
 class App:
