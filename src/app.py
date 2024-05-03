@@ -2,7 +2,7 @@ from datetime import datetime
 import rich
 from rich.table import Table
 
-from src.Habit import Habit
+from src.Habit import Habit, PERIODICITIES
 from src.Record import Record
 from src.db import Db
 
@@ -40,7 +40,8 @@ class App:
 
         #  ---------- Data table ----------
         # title
-        self.console.print(f"[bold magenta]Habits ({len(habits)})[/bold magenta]", "📃")
+        periodicity_title = PERIODICITIES[periodicity]["name"] if periodicity is not None else "All"
+        self.console.print("📃", f"[bold magenta] {periodicity_title} habits ({len(habits)}) [/bold magenta]")
 
         # build the table
         table = Table(show_header=True, header_style="bold blue")
@@ -51,24 +52,24 @@ class App:
         table.add_column("Description", min_width=30)
         table.add_column("Periodicity", min_width=10)
         table.add_column("Start Date", min_width=10)
-        # table.add_column("# Periods", min_width=5)
-        # table.add_column("Current streak", min_width=5)
-        # table.add_column("Best streak", min_width=5)
-        # table.add_column("% Done", min_width=5)
+        table.add_column("# Periods", min_width=5)
+        table.add_column("Current streak", min_width=5)
+        table.add_column("Best streak", min_width=5)
+        table.add_column("% Done", min_width=5)
 
         # add rows to the table
         for idx, habit in enumerate(habits):
-            # summary = habit.summary
+            summary = habit.summary
             table.add_row(
                 str(idx),
                 habit.title,
                 habit.description,
                 habit.periodicity["name"],
                 habit.start_date.strftime("%d/%m/%Y"),
-                # str(summary["total"]),
-                # str(summary["current_streak"]),
-                # str(summary["best_streak"]),
-                # str(summary["percentage"]),
+                str(summary["periods_total"]),
+                str(summary["current_streak"]),
+                str(summary["best_streak"]),
+                str(summary["percentage"]),
             )
 
         # print the table

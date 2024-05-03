@@ -68,6 +68,7 @@ class Db:
                     habit[2],
                     habit[3],
                     habit[4],
+                    db=self
                 )
             )
         return habits
