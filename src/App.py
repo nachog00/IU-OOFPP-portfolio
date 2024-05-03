@@ -62,7 +62,7 @@ class App:
         for idx, habit in enumerate(habits):
             summary = habit.summary
             table.add_row(
-                str(idx),
+                str(idx).rjust(3),
                 habit.title,
                 habit.description,
                 habit.periodicity["name"],
@@ -70,7 +70,7 @@ class App:
                 str(summary["periods_total"]),
                 str(summary["current_streak"]),
                 str(summary["best_streak"]),
-                str(summary["percentage"]),
+                "{:.0f}%".format(summary["percentage"] * 100).rjust(5),
             )
 
         # print the table

@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e425551-3f80-4f4d-8d12-4a32ec418b4a" name="Changes" comment="Got the analytics module computing the fields properly">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Db.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Db.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/analytics.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/analytics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli.py" afterDir="false" />
-    </list>
+    <list default="true" id="0e425551-3f80-4f4d-8d12-4a32ec418b4a" name="Changes" comment="analytics module working great." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -136,7 +130,7 @@
       <option name="presentableId" value="Default" />
       <updated>1714617322134</updated>
       <workItem from="1714617336831" duration="25343000" />
-      <workItem from="1714749229757" duration="6012000" />
+      <workItem from="1714749229757" duration="6576000" />
     </task>
     <task id="LOCAL-00001" summary="Already defined all cli commands (empty logic)&#10;Typer is running fine.">
       <option name="closed" value="true" />
@@ -226,7 +220,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714754863392</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="analytics module working great.">
+      <option name="closed" value="true" />
+      <created>1714756270127</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1714756270127</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,7 +257,8 @@
     <MESSAGE value="fixed the circular import by having the habit class hold a db attribute that it later uses to fetch its own records and computes its own statistics" />
     <MESSAGE value="refactor some names and intialized analytics module" />
     <MESSAGE value="Got the analytics module computing the fields properly" />
-    <option name="LAST_COMMIT_MESSAGE" value="Got the analytics module computing the fields properly" />
+    <MESSAGE value="analytics module working great." />
+    <option name="LAST_COMMIT_MESSAGE" value="analytics module working great." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/IU_Habit_Tracker$analytics.coverage" NAME="analytics Coverage Results" MODIFIED="1714754787864" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
