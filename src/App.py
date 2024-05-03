@@ -6,6 +6,7 @@ from src.Habit import Habit, PERIODICITIES
 from src.Record import Record
 from src.Db import Db
 from src.analytics import analytics
+import inquirer
 
 
 class App:
@@ -79,7 +80,7 @@ class App:
     def analytics(self):
 
         self.console.print("[bold magenta]Analytics[/bold magenta]")
-        
+
         data = analytics(self)
 
         for key, value in data.items():
@@ -97,11 +98,50 @@ class App:
 
                 periodicity = PERIODICITIES[p]["name"] if p != "a" else "All"
 
-                table.add_row( periodicity , str(h["value"]), h["habit"].title)
+                table.add_row(periodicity, str(h["value"]), h["habit"].title)
 
             self.console.print(table)
-        
-
 
     def launch(self):
-        ...
+        """
+        Launches an interactive loop
+        :return:
+        """
+        self.should_quit = False
+
+        def new_habit_controller():
+            questions = [
+                inquirer.Text("title", message="Enter habit title"),
+                inquirer.Text("description", message="Enter habit description"),
+                inquirer.List("periodicity", message="Enter periodicity", choices=[*PERIODICITIES.keys()]),
+                inquirer.Text("start_date", message="Enter start date", default=datetime.now().date().isoformat())
+            ]
+            answers = inquirer.prompt(questions)
+            self.add_habit(answers["title"], answers["description"], answers["periodicity"], answers["start_date"])
+            
+            # show the udpated list
+            self.list_habits(None)
+        
+        routes = {
+            "New Habit": new_habit_controller,
+            "Today": lambda: self.list_habits(None),
+            "Analytics": lambda: self.analytics(),
+            "Quit": lambda: setattr(self, "should_quit", True),
+            "Go to next day": lambda: ...
+        }
+
+
+        while not self.should_quit:
+            # Create a list of options for the menu
+            options = [
+                inquirer.List('route',
+                              message="Menu:",
+                              choices=list(routes.keys()),
+                              ),
+            ]
+
+            # Prompt the user to select a route
+            answer = inquirer.prompt(options)
+
+            # Call the controller function for the selected route
+            routes[answer['route']]()

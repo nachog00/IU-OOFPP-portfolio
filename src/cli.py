@@ -56,5 +56,5 @@ def analytics():
 
 @typer_app.command(help="Launch interactive loop")
 def launch(debug: bool = False, current_date: str = None):
-    typer.echo("Launching")
-    pass
+    app = App(console=console, debug=False)
+    app.launch()

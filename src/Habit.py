@@ -77,6 +77,6 @@ class Habit:
 
             [d1, d2, r] = [d2, d2 + period, []]
 
-        summary["percentage"] = summary["done"] / summary["periods_total"]
+        summary["percentage"] = summary["done"] / summary["periods_total"] if summary["periods_total"] > 0 else 0
 
         return summary

@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e425551-3f80-4f4d-8d12-4a32ec418b4a" name="Changes" comment="analytics module working great." />
+    <list default="true" id="0e425551-3f80-4f4d-8d12-4a32ec418b4a" name="Changes" comment="analytics module working great.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Habit.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Habit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -130,7 +135,7 @@
       <option name="presentableId" value="Default" />
       <updated>1714617322134</updated>
       <workItem from="1714617336831" duration="25343000" />
-      <workItem from="1714749229757" duration="6576000" />
+      <workItem from="1714749229757" duration="8578000" />
     </task>
     <task id="LOCAL-00001" summary="Already defined all cli commands (empty logic)&#10;Typer is running fine.">
       <option name="closed" value="true" />
